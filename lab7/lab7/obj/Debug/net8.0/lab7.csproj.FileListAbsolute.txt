@@ -1,0 +1,14 @@
+/home/tomasz/RiderProjects/lab7/lab7/bin/Debug/net8.0/lab7
+/home/tomasz/RiderProjects/lab7/lab7/bin/Debug/net8.0/lab7.deps.json
+/home/tomasz/RiderProjects/lab7/lab7/bin/Debug/net8.0/lab7.runtimeconfig.json
+/home/tomasz/RiderProjects/lab7/lab7/bin/Debug/net8.0/lab7.dll
+/home/tomasz/RiderProjects/lab7/lab7/bin/Debug/net8.0/lab7.pdb
+/home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/lab7.GeneratedMSBuildEditorConfig.editorconfig
+/home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/lab7.AssemblyInfoInputs.cache
+/home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/lab7.AssemblyInfo.cs
+/home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/lab7.csproj.CoreCompileInputs.cache
+/home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/lab7.dll
+/home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/refint/lab7.dll
+/home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/lab7.pdb
+/home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/lab7.genruntimeconfig.cache
+/home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/ref/lab7.dll

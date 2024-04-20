@@ -12,3 +12,18 @@
 /home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/lab7.pdb
 /home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/lab7.genruntimeconfig.cache
 /home/tomasz/RiderProjects/lab7/lab7/obj/Debug/net8.0/ref/lab7.dll
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/bin/Debug/net8.0/lab7
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/bin/Debug/net8.0/lab7.deps.json
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/bin/Debug/net8.0/lab7.runtimeconfig.json
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/bin/Debug/net8.0/lab7.dll
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/bin/Debug/net8.0/lab7.pdb
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/lab7.GeneratedMSBuildEditorConfig.editorconfig
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/lab7.AssemblyInfoInputs.cache
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/lab7.AssemblyInfo.cs
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/lab7.csproj.CoreCompileInputs.cache
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/lab7.sourcelink.json
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/lab7.dll
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/refint/lab7.dll
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/lab7.pdb
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/lab7.genruntimeconfig.cache
+/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/Debug/net8.0/ref/lab7.dll

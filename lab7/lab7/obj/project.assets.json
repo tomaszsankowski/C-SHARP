@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/tomasz/RiderProjects/lab7/lab7/lab7.csproj",
+      "projectUniqueName": "/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/lab7.csproj",
       "projectName": "lab7",
-      "projectPath": "/home/tomasz/RiderProjects/lab7/lab7/lab7.csproj",
+      "projectPath": "/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/lab7.csproj",
       "packagesPath": "/home/tomasz/.nuget/packages/",
-      "outputPath": "/home/tomasz/RiderProjects/lab7/lab7/obj/",
+      "outputPath": "/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/tomasz/.nuget/NuGet/NuGet.Config"

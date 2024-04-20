@@ -1,0 +1,12 @@
+# JetBrains Rider specific files
+/.idea
+
+# Build results
+/bin
+/obj
+
+# NuGet cache files
+*.nuget.dgspec.json
+project.assets.json
+*.nuget.g.props
+project.nuget.cache

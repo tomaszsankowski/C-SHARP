@@ -8,24 +8,31 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/home/tomasz/.nuget/packages/": {}
+    "C:\\Users\\Tomasz\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/lab7.csproj",
+      "projectUniqueName": "C:\\Users\\Tomasz\\Desktop\\Platformy Technologiczne\\C-SHARP\\lab7\\lab7\\lab7.csproj",
       "projectName": "lab7",
-      "projectPath": "/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/lab7.csproj",
-      "packagesPath": "/home/tomasz/.nuget/packages/",
-      "outputPath": "/home/tomasz/Pulpit/Platformy Technologiczne/C#/lab7/lab7/obj/",
+      "projectPath": "C:\\Users\\Tomasz\\Desktop\\Platformy Technologiczne\\C-SHARP\\lab7\\lab7\\lab7.csproj",
+      "packagesPath": "C:\\Users\\Tomasz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Tomasz\\Desktop\\Platformy Technologiczne\\C-SHARP\\lab7\\lab7\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/tomasz/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Tomasz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -59,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/tomasz/.dotnet/sdk/8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Tomasz\\.dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

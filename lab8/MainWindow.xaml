@@ -21,15 +21,22 @@
         <Menu Grid.Row="0" Grid.ColumnSpan="2">
             <MenuItem Header="File">
                 <MenuItem Header="Open" Click="OpenMenuItem_Click"></MenuItem>
+                <MenuItem Header="Close" Click="CloseMenuItem_Click"></MenuItem>
                 <MenuItem Header="Exit" Click="ExitMenuItem_Click"></MenuItem>
             </MenuItem>
         </Menu>
-        <TreeView x:Name="treeView" Grid.Column="0" Grid.Row="1" />
+        <TreeView x:Name="treeView" Grid.Column="0" Grid.Row="1" SelectedItemChanged="TreeView_SelectedItemChanged" />
         <ScrollViewer Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <TextBlock x:Name="fileContentTextBlock" TextWrapping="Wrap" />
         </ScrollViewer>
 
         <StatusBar Grid.Row="2" Grid.Column="1">
+            <StatusBarItem>
+                <TextBlock x:Name="openedStatusBarTextBlock"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <StatusBar Grid.Row="2" Grid.Column="0">
             <StatusBarItem>
                 <TextBlock x:Name="statusBarTextBlock"/>
             </StatusBarItem>

@@ -18,6 +18,7 @@ using System.Runtime.Remoting.Channels;
 using ContextMenu = System.Windows.Controls.ContextMenu;
 using MenuItem = System.Windows.Controls.MenuItem;
 using System.Text.RegularExpressions;
+using Application = System.Windows.Application;
 
 namespace lab8
 {
@@ -31,9 +32,14 @@ namespace lab8
             InitializeComponent();
         }
 
-        private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
+        private void CloseMenuItem_Click(object sender, RoutedEventArgs e)
         {
             treeView.Items.Clear();
+        }
+
+        private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
 
         private void OpenMenuItem_Click(object sender, RoutedEventArgs e)
@@ -55,11 +61,11 @@ namespace lab8
                 treeView.Items.Add(root);
                 AddContextMenu(root, true);
 
-                addChilds(selectedPath, root);
+                AddChilds(selectedPath, root);
             }
         }
 
-        private void addChilds(string directoryPath, TreeViewItem parentNode)
+        private void AddChilds(string directoryPath, TreeViewItem parentNode)
         {
             try
             {
@@ -79,7 +85,7 @@ namespace lab8
                     parentNode.Items.Add(directoryItem);
                     AddContextMenu(directoryItem, true);
 
-                    addChilds(directory, directoryItem);
+                    AddChilds(directory, directoryItem);
                 }
 
                 string[] files = System.IO.Directory.GetFiles(directoryPath);
@@ -105,9 +111,6 @@ namespace lab8
         private void AddContextMenu(TreeViewItem treeViewItem, bool isDirectory)
         {
             var contextMenu = new ContextMenu();
-            var deleteMenuItem = new MenuItem() { Header = "Delete" };
-            deleteMenuItem.Click += (sender, e) => DeleteItem(treeViewItem);
-            contextMenu.Items.Add(deleteMenuItem);
 
             if(isDirectory)
             {
@@ -121,6 +124,10 @@ namespace lab8
                 openFileMenuItem.Click += (sender, e) => OpenItem(treeViewItem);
                 contextMenu.Items.Add(openFileMenuItem);
             }
+            
+            var deleteMenuItem = new MenuItem() { Header = "Delete" };
+            deleteMenuItem.Click += (sender, e) => DeleteItem(treeViewItem);
+            contextMenu.Items.Add(deleteMenuItem);
 
             treeViewItem.ContextMenu = contextMenu;
         }
@@ -230,9 +237,11 @@ namespace lab8
 
                                 System.IO.File.SetAttributes(fullPath, attributes);
 
-                                TreeViewItem newItem = new TreeViewItem();
-                                newItem.Header = itemName;
-                                newItem.Tag = fullPath;
+                                TreeViewItem newItem = new TreeViewItem
+                                {
+                                    Header = itemName,
+                                    Tag = fullPath
+                                };
                                 parentItem.Items.Add(newItem);
                                 AddContextMenu(newItem, false);
                             }
@@ -278,12 +287,16 @@ namespace lab8
                                 attributes |= System.IO.FileAttributes.Archive;
                             }
 
-                            System.IO.DirectoryInfo directoryInfo = new System.IO.DirectoryInfo(fullPath);
-                            directoryInfo.Attributes = attributes;
+                            System.IO.DirectoryInfo directoryInfo = new System.IO.DirectoryInfo(fullPath)
+                            {
+                                Attributes = attributes
+                            };
 
-                            TreeViewItem newItem = new TreeViewItem();
-                            newItem.Header = itemName;
-                            newItem.Tag = fullPath;
+                            TreeViewItem newItem = new TreeViewItem
+                            {
+                                Header = itemName,
+                                Tag = fullPath
+                            };
                             parentItem.Items.Add(newItem);
                             AddContextMenu(newItem, true);
                         }
@@ -317,7 +330,7 @@ namespace lab8
                     fileContentTextBlock.Text = fileContent;
 
                     System.IO.FileAttributes attributes = System.IO.File.GetAttributes(filePath);
-                    statusBarTextBlock.Text = GetCompactAttributes(attributes);
+                    openedStatusBarTextBlock.Text = GetCompactAttributes(attributes);
                 }
             }
             catch (Exception ex)
@@ -370,5 +383,24 @@ namespace lab8
         }
 
 
+        private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (e.NewValue is TreeViewItem selectedItem)
+            {
+                string itemPath = selectedItem.Tag as string;
+                if (!string.IsNullOrEmpty(itemPath))
+                {
+                    try
+                    {
+                        System.IO.FileAttributes attributes = System.IO.File.GetAttributes(itemPath);
+                        statusBarTextBlock.Text = GetCompactAttributes(attributes);
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Windows.MessageBox.Show($"An error occurred while reading attributes: {ex.Message}");
+                    }
+                }
+            }
+        }
     }
 }

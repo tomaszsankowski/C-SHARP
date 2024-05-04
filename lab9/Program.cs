@@ -92,6 +92,7 @@ internal static class Lab9
             Console.WriteLine($"{group.engineType}: {group.averageHppl}");
         }
         Console.WriteLine();
+
         // zadanie 2
 
         SerializeCars("CarsCollection.xml", myCars);
@@ -112,6 +113,7 @@ internal static class Lab9
         Console.WriteLine();
 
         // zadanie 3
+
         XElement rootNode = XElement.Load("CarsCollection.xml");
 
         double avgHP = (double)rootNode.XPathEvaluate("sum(car[not(engine/@model[contains(., 'TDI')])]/engine[HorsePower]/HorsePower) div count(car[not(engine/@model[contains(., 'TDI')])]/engine[HorsePower])");
@@ -135,6 +137,27 @@ internal static class Lab9
         // zadanie 5
 
         GenerateXHTMLTable(myCars);
+
+        // zadanie 6
+
+        XElement xmlFile = XElement.Load("CarsCollection.xml");
+
+        foreach (var carElem in xmlFile.Descendants("HorsePower"))
+        {
+            carElem.Name = "hp";
+        }
+
+        foreach(var carElem in xmlFile.Elements("car"))
+        {
+            string? year = carElem.Element("Year")?.Value;
+            if(year != null)
+            {
+                carElem.Element("Model")?.SetAttributeValue("year", year);
+                carElem.Element("Year")?.Remove();
+            }
+        }
+
+        xmlFile.Save("zadanie6.xml");
     }
 
     static void SerializeCars(string filePath, List<Car> cars)
@@ -169,7 +192,7 @@ internal static class Lab9
 
         XElement rootNode = new("cars", nodes);
 
-        rootNode.Save("CarsFromLinq.xml");
+        rootNode.Save("zadanie4.xml");
     }
 
     static void GenerateXHTMLTable(List<Car> myCars)
@@ -196,7 +219,7 @@ internal static class Lab9
 
         xhtmlTemplate.Descendants("body").First().Add(table);
 
-        xhtmlTemplate.Save("CarsTable.html");
+        xhtmlTemplate.Save("zadanie5.html");
     }
 
 }

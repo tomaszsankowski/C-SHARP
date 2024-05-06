@@ -7,20 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserSortColumns="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" x:Name="dataGrid" AutoGenerateColumns="False" CanUserSortColumns="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="*" />
                 <DataGridTextColumn Header="Model" Binding="{Binding Model}" Width="*" />
+                <DataGridTextColumn Header="Model" Binding="{Binding Motor.Model}" Width="*" />
                 <DataGridTextColumn Header="Displacement" Binding="{Binding Motor.Displacement}" Width="*" />
                 <DataGridTextColumn Header="HorsePower" Binding="{Binding Motor.HorsePower}" Width="*" />
-                <DataGridTextColumn Header="Model" Binding="{Binding Motor.Model}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Button Content="Delete" Click="Usun_Click" Height="50" Width="100" />
             <Button Content="Search" Click="Szukaj_Click" Height="50" Width="100" />
             <Button Content="Clear Filters" Click="ClearFilters_Click" Height="50" Width="100" />
+        </StackPanel>
+
+        <TextBox Grid.Column="1" x:Name="zadaniaTextBox" Margin="0 0 0 10" />
+        
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button Content="Zadanie 1" Click="Zad1_Click" Height="50" Width="70" />
+            <Button Content="Zadanie 2" Click="Zad2_Click" Height="50" Width="70" />
+            <Button Content="Zad3 (sort)" Click="Zad3_Sort_Click" Height="50" Width="70" />
+            <Button Content="Zad3 (find)" Click="Zad3_Find_Click" Height="50" Width="70" />
+            <Button Content="Zadanie 4" Click="Zad4_Click" Height="50" Width="70"/>
         </StackPanel>
     </Grid>
 </Window>

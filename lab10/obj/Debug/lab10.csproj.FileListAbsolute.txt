@@ -2,7 +2,6 @@ C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\bin\Debug\lab10.e
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\bin\Debug\lab10.exe
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\bin\Debug\lab10.pdb
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\lab10.csproj.AssemblyReference.cache
-C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\lab10.csproj.SuggestedBindingRedirects.cache
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\MainWindow.g.cs
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\App.g.cs
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\lab10_MarkupCompile.cache
@@ -16,3 +15,9 @@ C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\lab10.e
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\lab10.pdb
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\SearchWindow.baml
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\SearchWindow.g.cs
+C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\SortWindow.baml
+C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\SortWindow.g.cs
+C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\GetValue.g.cs
+C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\GetValue.baml
+C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\FindInDataGrid.baml
+C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\FindInDataGrid.g.cs

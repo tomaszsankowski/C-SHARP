@@ -4,18 +4,8 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Xml.Serialization;
 
 namespace lab10
@@ -47,6 +37,11 @@ namespace lab10
         {
             return this.HorsePower.CompareTo(other.HorsePower);
         }
+
+        public override string ToString()
+        {
+            return $"{Displacement}{HorsePower}{Model}";
+        }
     }
 
     [XmlType("car")]
@@ -57,7 +52,7 @@ namespace lab10
 
 
         [XmlElement("engine")]
-        public virtual Engine Motor { get; set; }
+        public Engine Motor { get; set; }
 
         public Car(string model, Engine engine, int year)
         {
@@ -71,13 +66,135 @@ namespace lab10
             Motor = new Engine();
             Model = string.Empty;
         }
+
+        public override string ToString()
+        {
+            return $"Year: {Year}, Model: {Model}, Engine: {Motor.Model}, Displacement: {Motor.Displacement}, HorsePower: {Motor.HorsePower}";
+        }
     }
+
+    public class SortableBindingList<T> : BindingList<T>
+    {
+        protected override bool SupportsSortingCore => true;
+        protected override bool SupportsSearchingCore => true;
+
+        private readonly ListSortDirection sortDirection;
+        private PropertyDescriptor sortProperty;
+
+        public SortableBindingList(List<T> list) : base(list) { }
+
+        protected override void ApplySortCore(PropertyDescriptor prop, ListSortDirection direction)
+        {
+            if (Items is List<T> itemsList)
+            {
+                var property = typeof(T).GetProperty(prop.Name);
+                if (property != null)
+                {
+                    if (property.PropertyType.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IComparable<>)))
+                    {
+                        itemsList.Sort(new ItemComparer<T>(property, direction));
+                    }
+                    else
+                    {
+                        MessageBox.Show("NIE MA COMPARABLE");
+                    }
+                }
+            }
+        }
+
+        protected override void RemoveSortCore()
+        {
+            sortProperty = null;
+        }
+
+        protected override bool IsSortedCore => sortProperty != null;
+
+        protected override ListSortDirection SortDirectionCore => sortDirection;
+
+        protected override PropertyDescriptor SortPropertyCore => sortProperty;
+
+        protected override int FindCore(PropertyDescriptor prop, object key)
+        {
+            if (Items is List<T> itemsList)
+            {
+                foreach (var item in itemsList)
+                {
+                    var property = TypeDescriptor.GetProperties(typeof(T)).Find(prop.Name, true);
+                    if (property != null)
+                    {
+                        var value = property.GetValue(item);
+                        if (value != null && value.ToString().Contains(key.ToString()))
+                            return itemsList.IndexOf(item);
+                    }
+                }
+            }
+            return -1;
+        }
+
+
+        private class ItemComparer<TItem> : IComparer<TItem>
+        {
+            private readonly PropertyInfo property;
+            private readonly ListSortDirection direction;
+
+            public ItemComparer(PropertyInfo property, ListSortDirection direction)
+            {
+                this.property = property;
+                this.direction = direction;
+            }
+
+            public int Compare(TItem x, TItem y)
+            {
+                var xValue = property.GetValue(x);
+                var yValue = property.GetValue(y);
+
+                if (xValue == null && yValue == null)
+                    return 0;
+                if (xValue == null)
+                    return direction == ListSortDirection.Ascending ? -1 : 1;
+                if (yValue == null)
+                    return direction == ListSortDirection.Ascending ? 1 : -1;
+
+                if (xValue is IComparable<Engine> comparableX && yValue is IComparable<Engine> comparableY)
+                {
+                    return direction == ListSortDirection.Ascending ? comparableX.CompareTo((Engine)yValue) : comparableY.CompareTo((Engine)xValue);
+                }
+
+                else if (xValue is IComparable comparableX2 && yValue is IComparable comparableY2)
+                {
+                    return direction == ListSortDirection.Ascending ? comparableX2.CompareTo(yValue) : comparableY2.CompareTo(xValue);
+                }
+
+
+                return 0;
+            }
+
+        }
+
+
+        public void SortBy(string property, ListSortDirection direction)
+        {
+            ApplySortCore(TypeDescriptor.GetProperties(typeof(T)).Find(property, true), direction);
+        }
+
+
+        public int Find(string propertyName, object key)
+        {
+            PropertyDescriptor prop = TypeDescriptor.GetProperties(typeof(T)).Find(propertyName, true);
+            if (prop != null)
+            {
+                return FindCore(prop, key);
+            }
+            return -1;
+        }
+    }
+
     public partial class MainWindow : Window
     {
-        List<Car> myCars;
+        readonly List<Car> myCars;
         BindingList<Car> myCarsBindingList;
-        BindingList<Car> originalCarsList;
-        private Dictionary<string, ListSortDirection> sortDirections = new Dictionary<string, ListSortDirection>();
+        readonly BindingList<Car> originalCarsList;
+        readonly private Dictionary<string, ListSortDirection> sortDirections = new Dictionary<string, ListSortDirection>();
         public MainWindow()
         {
             InitializeComponent();
@@ -87,20 +204,6 @@ namespace lab10
             dataGrid.ItemsSource = myCarsBindingList;
 
             dataGrid.Sorting += DataGrid_Sorting;
-        }
-
-        static void SerializeCars(string filePath, List<Car> cars)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Car>), new XmlRootAttribute("cars"));
-            TextWriter writer = new StreamWriter(filePath);
-            try
-            {
-                serializer.Serialize(writer, cars);
-            }
-            finally
-            {
-                writer.Dispose();
-            }
         }
 
 
@@ -174,6 +277,7 @@ namespace lab10
         private void DataGrid_Sorting(object sender, DataGridSortingEventArgs e)
         {
             string sortBy = e.Column.SortMemberPath;
+            MessageBox.Show(sortBy);
             ListSortDirection direction;
 
             if (sortDirections.ContainsKey(sortBy))
@@ -239,8 +343,147 @@ namespace lab10
         }
 
 
+        private void Zad1_Click(object sender, RoutedEventArgs e)
+        {
+            var queryExpressionSyntaxCars = from car in myCars
+                                            where car.Model.StartsWith("A6")
+                                            group car by car.Motor.Model == "TDI" ? "diesel" : "petrol" into g
+                                            let avgHPPL = g.Average(car => car.Motor.HorsePower / car.Motor.Displacement)
+                                            orderby avgHPPL descending
+                                            select new
+                                            {
+                                                engineType = g.Key,
+                                                avgHPPL
+                                            };
+
+            var methodBasedQuerySyntaxCars = myCars.Where(car => car.Model.StartsWith("A6"))
+                                          .GroupBy(car => car.Motor.Model == "TDI" ? "diesel" : "petrol")
+                                          .Select(g => new
+                                          {
+                                              engineType = g.Key,
+                                              avgHPPL = g.Average(car => car.Motor.HorsePower / car.Motor.Displacement)
+                                          })
+                                          .OrderByDescending(x => x.avgHPPL);
+
+            zadaniaTextBox.AppendText("Expression Syntax Query result:\n");
+            foreach (var group in queryExpressionSyntaxCars)
+            {
+                zadaniaTextBox.AppendText($"{group.engineType} : {group.avgHPPL}\n");
+            }
+            zadaniaTextBox.AppendText("\n");
+            zadaniaTextBox.AppendText("Method Based Query result:\n");
+            foreach (var group in methodBasedQuerySyntaxCars)
+            {
+                zadaniaTextBox.AppendText($"{group.engineType} : {group.avgHPPL}\n");
+            }
+        }
+
+        private void Zad2_Click(object sender, RoutedEventArgs e)
+        {
+            Comparison<Car> arg1 = delegate (Car car1, Car car2)
+            {
+                return car2.Motor.HorsePower.CompareTo(car1.Motor.HorsePower);
+            };
+
+            Predicate<Car> arg2 = delegate (Car car)
+            {
+                return car.Motor.Model == "TDI";
+            };
+
+            Action<Car> arg3 = delegate (Car car)
+            {
+                MessageBox.Show(car.ToString());
+            };
+
+            myCars.Sort(new Comparison<Car>(arg1));
+            myCars.FindAll(arg2).ForEach(arg3);
+        }
+
+        private void Zad3_Sort_Click(object sender, RoutedEventArgs e)
+        {
+            SortWindow sortWindow = new SortWindow();
+            bool? result = sortWindow.ShowDialog();
+
+            if (result == true)
+            {
+                string sortingProperty = sortWindow.SortingProperty;
+                ListSortDirection sortingOrder = sortWindow.IsAscending ? ListSortDirection.Ascending : ListSortDirection.Descending;
+
+                SortableBindingList<Car> sortedCarsList = new SortableBindingList<Car>(myCars);
+
+                switch (sortingProperty)
+                {
+                    case "Year":
+                        sortedCarsList.SortBy("Year", sortingOrder);
+                        break;
+                    case "Model":
+                        sortedCarsList.SortBy("Model", sortingOrder);
+                        break;
+                    case "Motor":
+                        sortedCarsList.SortBy("Motor", sortingOrder);
+                        break;
+                    default:
+                        break;
+                }
+
+                zadaniaTextBox.Clear();
+                zadaniaTextBox.AppendText($"Sorting by {sortingProperty}, {sortingOrder}\n");
+                foreach (var car in sortedCarsList)
+                {
+                    zadaniaTextBox.AppendText($"{car.Year}\t{car.Model}\t{car.Motor.Displacement}\t{car.Motor.HorsePower}\t{car.Motor.Model}\n");
+                }
+            }
+        }
+
+        private void Zad3_Find_Click(object sender, RoutedEventArgs e)
+        {
+            GetValue searchWindow = new GetValue();
+            if (searchWindow.ShowDialog() == true)
+            {
+                string searchString = searchWindow.EnteredValue;
+
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    SortableBindingList<Car> sortedCarsList = new SortableBindingList<Car>(myCars);
+
+                    int indexYear = sortedCarsList.Find(nameof(Car.Year), searchString);
+                    int indexModel = sortedCarsList.Find(nameof(Car.Model), searchString);
+                    int indexEngine = sortedCarsList.Find(nameof(Car.Motor), searchString);
+
+                    if (indexYear != -1)
+                    {
+                        Car foundCar = myCarsBindingList[indexYear];
+                        MessageBox.Show($"Znaleziono samochód: {foundCar}");
+                    }
+                    else if (indexModel != -1)
+                    {
+                        Car foundCar = myCarsBindingList[indexModel];
+                        MessageBox.Show($"Znaleziono samochód: {foundCar}");
+                    }
+                    else if (indexEngine != -1)
+                    {
+                        Car foundCar = myCarsBindingList[indexEngine];
+                        MessageBox.Show($"Znaleziono samochód: {foundCar}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nie znaleziono żadnego samochodu pasującego do kryteriów wyszukiwania.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Proszę wprowadzić kryteria wyszukiwania.");
+                }
+            }
+        }
 
 
+        private void Zad4_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new FindInDataGrid(myCarsBindingList.ToList<Car>());
+
+            newWindow.Show();
+        }
     }
 
 }

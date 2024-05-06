@@ -1,0 +1,24 @@
+﻿<Window x:Class="lab10.FindInDataGrid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FindInDataGrid" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <ComboBox Grid.Row="0" Grid.Column="0" Width="200" Height="50" x:Name="comboBox" />
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="textBox" Height="50" Width="200" />
+        <ComboBox Grid.Row="1" Grid.ColumnSpan="2" x:Name="resultComboBox" Margin="50 20 50 20" />
+        <Button Grid.Row="2" Grid.ColumnSpan="2" x:Name="button" Content="Search" Click="Button_Click" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" />
+    </Grid>
+</Window>

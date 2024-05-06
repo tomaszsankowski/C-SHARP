@@ -1,0 +1,19 @@
+﻿<Window x:Class="lab10.SortWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sort Options" Height="300" Width="300">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Sort by [parameter]:" Margin="20,10,20,2"/>
+            <RadioButton x:Name="YearRadioButton" GroupName="SortingProperty" Content="Year" Margin="20,2,20,2"/>
+            <RadioButton x:Name="ModelRadioButton" GroupName="SortingProperty" Content="Model" Margin="20,2,20,2"/>
+            <RadioButton x:Name="MotorRadioButton" GroupName="SortingProperty" Content="Motor" Margin="20,2,20,2"/>
+
+            <TextBlock Text="Sort [ascending/descending]:" Margin="20,10,20,2" />
+            <RadioButton x:Name="AscendingRadioButton" GroupName="SortingOrder" Content="Ascending" Margin="20,2,20,2" />
+            <RadioButton x:Name="DescendingRadioButton" GroupName="SortingOrder" Content="Descending" Margin="20,2,20,10"/>
+
+            <Button Content="Sort" Click="Sort_Click" Margin="20,10,20,10"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,5 +1,4 @@
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab8\obj\Debug\lab8.csproj.AssemblyReference.cache
-C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab8\obj\Debug\lab8.csproj.SuggestedBindingRedirects.cache
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab8\obj\Debug\MainWindow.g.cs
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab8\obj\Debug\App.g.cs
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab8\obj\Debug\lab8_MarkupCompile.cache

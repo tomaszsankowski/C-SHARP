@@ -1,20 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Forms;
-using System.Windows.Markup;
-using System.Runtime.Remoting.Channels;
 using ContextMenu = System.Windows.Controls.ContextMenu;
 using MenuItem = System.Windows.Controls.MenuItem;
 using System.Text.RegularExpressions;
@@ -136,25 +124,7 @@ namespace lab8
         {
             try
             {
-                if (selectedTreeViewItem.Tag is string filePath && System.IO.File.Exists(filePath))
-                {
-                    try
-                    {
-                        var fileAttributes = System.IO.File.GetAttributes(filePath);
-
-                        if ((fileAttributes & System.IO.FileAttributes.ReadOnly) == System.IO.FileAttributes.ReadOnly)
-                        {
-                            System.IO.File.SetAttributes(filePath, fileAttributes & ~System.IO.FileAttributes.ReadOnly);
-                        }
-
-                        System.IO.File.Delete(filePath);
-                    }
-                    catch (Exception ex)
-                    {
-                        System.Windows.MessageBox.Show($"An error occurred: {ex.Message}");
-                    }
-                }
-                else if (selectedTreeViewItem.Tag is string directoryPath && System.IO.Directory.Exists(directoryPath))
+                if (selectedTreeViewItem.Tag is string directoryPath && System.IO.Directory.Exists(directoryPath))
                 {
                     try
                     {
@@ -169,7 +139,6 @@ namespace lab8
                     }
                     catch (Exception ex)
                     {
-                        // Obsłuż wyjątek, jeśli wystąpił
                         System.Windows.MessageBox.Show($"An error occurred: {ex.Message}");
                     }
                 }

@@ -195,7 +195,7 @@ namespace lab11
                         fibN = i;
                     }
 
-                    Thread.Sleep(20); // Spowolnienie pętli
+                    Thread.Sleep(5); // Spowolnienie pętli
 
                     worker.ReportProgress(i);
                 }

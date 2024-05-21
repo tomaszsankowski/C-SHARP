@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\Tomasz\\Desktop\\Platformy Technologiczne\\C-SHARP\\lab11\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{10A34582-C63A-4831-AB7E-0F2F37E81773}|lab11.csproj|C:\\Users\\Tomasz\\Desktop\\Platformy Technologiczne\\C-SHARP\\lab11\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{10A34582-C63A-4831-AB7E-0F2F37E81773}|lab11.csproj|c:\\users\\tomasz\\desktop\\platformy technologiczne\\c-sharp\\lab11\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10A34582-C63A-4831-AB7E-0F2F37E81773}|lab11.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{10A34582-C63A-4831-AB7E-0F2F37E81773}|lab11.csproj|c:\\users\\tomasz\\desktop\\platformy technologiczne\\c-sharp\\lab11\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{10A34582-C63A-4831-AB7E-0F2F37E81773}|lab11.csproj|C:\\Users\\Tomasz\\Desktop\\Platformy Technologiczne\\C-SHARP\\lab11\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{10A34582-C63A-4831-AB7E-0F2F37E81773}|lab11.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -29,8 +29,7 @@
               "ToolTip": "C:\\Users\\Tomasz\\Desktop\\Platformy Technologiczne\\C-SHARP\\lab11\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-08T07:59:43.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-08T07:59:43.286Z"
             },
             {
               "$type": "Document",
@@ -40,7 +39,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Tomasz\\Desktop\\Platformy Technologiczne\\C-SHARP\\lab11\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAOIAAAAAAAAAAAAQwOUAAAAAAAAA",
+              "ViewState": "AQIAAAUBAAAAAAAAAAAYwBQBAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-08T07:59:42.015Z",
               "EditorCaption": ""

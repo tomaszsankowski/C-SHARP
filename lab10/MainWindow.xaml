@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab10"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="480" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <DataGrid Grid.Column="0" x:Name="dataGrid" AutoGenerateColumns="False" CanUserSortColumns="True">
             <DataGrid.Columns>
@@ -28,13 +28,17 @@
         </StackPanel>
 
         <TextBox Grid.Column="1" x:Name="zadaniaTextBox" Margin="0 0 0 10" />
-        
+
         <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Button Content="Zadanie 1" Click="Zad1_Click" Height="50" Width="70" />
             <Button Content="Zadanie 2" Click="Zad2_Click" Height="50" Width="70" />
             <Button Content="Zad3 (sort)" Click="Zad3_Sort_Click" Height="50" Width="70" />
             <Button Content="Zad3 (find)" Click="Zad3_Find_Click" Height="50" Width="70" />
-            <Button Content="Zadanie 4" Click="Zad4_Click" Height="50" Width="70"/>
         </StackPanel>
+        <Label Content="Zadanie 4" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="inputComboBox" HorizontalAlignment="Left" Margin="75,345,0,0" VerticalAlignment="Top" Width="100"/>
+        <ComboBox Name="outputComboBox" HorizontalAlignment="Left" Margin="275,345,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox Name="filtersTextBox" HorizontalAlignment="Left" Margin="175,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="22"/>
+        <Button Content="Filter" Click="Zad4_Click" Margin="389,345,10,97" />
     </Grid>
 </Window>

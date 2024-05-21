@@ -194,6 +194,7 @@ namespace lab10
         readonly List<Car> myCars;
         BindingList<Car> myCarsBindingList;
         readonly BindingList<Car> originalCarsList;
+        FindInDataGrid<Car> zad4Grid;
         readonly private Dictionary<string, ListSortDirection> sortDirections = new Dictionary<string, ListSortDirection>();
         public MainWindow()
         {
@@ -204,6 +205,13 @@ namespace lab10
             dataGrid.ItemsSource = myCarsBindingList;
 
             dataGrid.Sorting += DataGrid_Sorting;
+
+            zad4Grid = new FindInDataGrid<Car>(myCarsBindingList);
+
+            foreach (string it in zad4Grid.properties)
+            {
+                inputComboBox.Items.Add(it);
+            }
         }
 
 
@@ -277,7 +285,6 @@ namespace lab10
         private void DataGrid_Sorting(object sender, DataGridSortingEventArgs e)
         {
             string sortBy = e.Column.SortMemberPath;
-            MessageBox.Show(sortBy);
             ListSortDirection direction;
 
             if (sortDirections.ContainsKey(sortBy))
@@ -477,12 +484,88 @@ namespace lab10
             }
         }
 
-
-        private void Zad4_Click(object sender, RoutedEventArgs e)
+        private void Zad4_Click(object sender, EventArgs e)
         {
-            var newWindow = new FindInDataGrid(myCarsBindingList.ToList<Car>());
+            if (inputComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an item");
+                return;
+            }
 
-            newWindow.Show();
+            string propertyName = inputComboBox.SelectedItem.ToString();
+            string searchValue = filtersTextBox.Text;
+
+            if (searchValue == "")
+            {
+                MessageBox.Show("Please enter a value to search for");
+                return;
+            }
+            else
+            {
+                outputComboBox.Items.Clear();
+                zad4Grid.filter(propertyName, searchValue, myCarsBindingList);
+                foreach (string str in zad4Grid.output)
+                {
+                    outputComboBox.Items.Add(str);
+                }
+            }
+        }
+
+
+        public class FindInDataGrid<T>
+        {
+            public BindingList<T> myItems { get; set; }
+            public List<string> properties { get; set; }
+            public List<string> output { get; set; }
+            public FindInDataGrid(BindingList<T> items)
+            {
+                myItems = new BindingList<T>(items);
+                properties = new List<string>();
+                output = new List<string>();
+
+                LoadProperties(typeof(T), "");
+            }
+
+            public void LoadProperties(Type type, string prefix)
+            {
+                foreach (var prop in type.GetProperties())
+                {
+                    if (prop.PropertyType == typeof(string) || prop.PropertyType == typeof(int) || prop.PropertyType == typeof(double))
+                    {
+                        properties.Add(prefix + prop.Name);
+                    }
+                    else
+                    {
+                        LoadProperties(prop.PropertyType, prefix + prop.Name + ".");
+                    }
+                }
+            }
+
+            public void filter(string propertyName, string searchValue, BindingList<T> myItemList)
+            {
+                myItems = myItemList;
+
+                output.Clear();
+
+                var foundItems = myItems.ToList().FindAll(item =>
+                {
+                    var propertyNames = propertyName.Split('.');
+                    object propertyValue = item;
+                    foreach (var name in propertyNames)
+                    {
+                        if (propertyValue == null)
+                        {
+                            return false;
+                        }
+                        propertyValue = propertyValue.GetType().GetProperty(name)?.GetValue(propertyValue, null);
+                    }
+                    return propertyValue?.ToString() == searchValue;
+                });
+                foreach (var item in foundItems)
+                {
+                    output.Add(item.ToString());
+                }
+            }
         }
     }
 

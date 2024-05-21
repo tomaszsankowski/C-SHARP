@@ -55,19 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="FindInDataGrid.xaml.cs">
-      <DependentUpon>FindInDataGrid.xaml</DependentUpon>
-    </Compile>
     <Compile Include="GetValue.xaml.cs">
       <DependentUpon>GetValue.xaml</DependentUpon>
     </Compile>
     <Compile Include="SortWindow.xaml.cs">
       <DependentUpon>SortWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="FindInDataGrid.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="GetValue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

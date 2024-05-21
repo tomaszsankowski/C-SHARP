@@ -116,7 +116,14 @@ internal static class Lab9
 
         XElement rootNode = XElement.Load("CarsCollection.xml");
 
-        double avgHP = (double)rootNode.XPathEvaluate("sum(car[not(engine/@model[contains(., 'TDI')])]/engine[HorsePower]/HorsePower) div count(car[not(engine/@model[contains(., 'TDI')])]/engine[HorsePower])");
+        double avgHP = (double)rootNode.XPathEvaluate("" +
+            "sum(" +
+            "car[not(engine/@model[contains(., 'TDI')])]" +
+            "/engine[HorsePower]/HorsePower)" +
+            "div count(" +
+            "car" +
+            "[not(engine/@model[contains(., 'TDI')])]" +
+            "/engine[HorsePower])");
 
 
         Console.WriteLine($"Średnia moc samochodów bez silników TDI: {avgHP}");

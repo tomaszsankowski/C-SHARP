@@ -19,5 +19,3 @@ C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\SortWin
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\SortWindow.g.cs
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\GetValue.g.cs
 C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\GetValue.baml
-C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\FindInDataGrid.baml
-C:\Users\Tomasz\Desktop\Platformy Technologiczne\C-SHARP\lab10\obj\Debug\FindInDataGrid.g.cs

@@ -119,42 +119,38 @@ namespace lab11
 
         private static Task<int> MianownikAsync(int K)
         {
-            return Task.Run(() =>
+            int res = 1;
+            for (int i = 1; i <= K; i++)
             {
-                int res = 1;
-                for (int i = 1; i <= K; i++)
-                {
-                    res *= i;
-                }
-                return res;
-            });
+                res *= i;
+            }
+            return Task.FromResult(res);
         }
 
         private static Task<int> LicznikAsync(int K, int N)
         {
-            return Task.Run(() =>
+            int res = 1;
+            for (int i = (N - K + 1); i <= N; i++)
             {
-                int res = 1;
-                for (int i = (N - K + 1); i <= N; i++)
-                {
-                    res *= i;
-                }
-                return res;
-            });
+                res *= i;
+            }
+            return Task.FromResult(res);
         }
 
-        public async void Async_OnClick(object sender, RoutedEventArgs e)
+        public async Task Async_OnClick(object sender, RoutedEventArgs e)
         {
             (int K, int N) = GetKandN();
 
+            Task<int> licznikTask = LicznikAsync(K, N);
+            Task<int> mianownikTask = MianownikAsync(K);
 
-            Task<int> taskLicznik = LicznikAsync(K, N);
-            Task<int> taskMianownik = MianownikAsync(K);
+            await Task.WhenAll(licznikTask, mianownikTask);
 
-            int wynik = await taskLicznik / await taskMianownik;
+            int wynik = licznikTask.Result / mianownikTask.Result;
 
             AsyncTextBox.Text = wynik.ToString();
         }
+
 
         public void Fibonacci_OnClick(object sender, RoutedEventArgs e)
         {

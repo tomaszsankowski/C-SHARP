@@ -1,0 +1,71 @@
+# Pliki i katalogi Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+**/*.user
+**/*.rsuser
+**/*.suo
+**/*.vcxproj.user
+**/*.pdb
+
+# Folder buildów
+bin/
+obj/
+
+# Logi, pliki tymczasowe i zależności
+*.log
+*.cache
+*.diff
+*.patch
+*.class
+*.log
+*.local
+*.pid
+*.seed
+*.pid.lock
+
+# Systemy operacyjne
+.DS_Store
+Thumbs.db
+
+# Dane użytkownika
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Pliki konfiguracyjne IDE
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.tmproj
+*.code-workspace
+
+# ASP.NET Core specyficzne
+appsettings.Development.json
+
+# Serwery www
+wwwroot/
+
+# Pliki tymczasowe Entity Framework
+migrations/
+
+# Pliki tymczasowe NuGet
+*.nupkg
+.nuget/
+packages/
+
+# Pliki tymczasowe Rider
+.idea/
+*.sublime-*
+*.code-workspace
+**/.idea/
+**/*.iml
+*.csproj.DotSettings.user
+
+# Inne
+*.db
+*.bak

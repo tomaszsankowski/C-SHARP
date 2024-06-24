@@ -39,6 +39,6 @@
         <ComboBox Name="inputComboBox" HorizontalAlignment="Left" Margin="75,345,0,0" VerticalAlignment="Top" Width="100"/>
         <ComboBox Name="outputComboBox" HorizontalAlignment="Left" Margin="275,345,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBox Name="filtersTextBox" HorizontalAlignment="Left" Margin="175,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="22"/>
-        <Button Content="Filter" Click="Zad4_Click" Margin="389,345,10,97" />
+        <Button Content="Filter" Click="Zad4_Click" Margin="370,270,0,0" Width="60" Height="22" />
     </Grid>
 </Window>

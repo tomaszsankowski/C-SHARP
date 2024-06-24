@@ -137,7 +137,7 @@ namespace lab11
             return Task.FromResult(res);
         }
 
-        public async Task Async_OnClick(object sender, RoutedEventArgs e)
+        public async void Async_OnClick(object sender, RoutedEventArgs e)
         {
             (int K, int N) = GetKandN();
 

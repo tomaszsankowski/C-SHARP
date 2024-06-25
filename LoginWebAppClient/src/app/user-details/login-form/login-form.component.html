@@ -1,0 +1,31 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="bm-3">
+        <label>Name</label>
+        <input class="form-control form-control-lg"
+        placeholder="Name"
+        #name="ngModel" name="name"
+        [(ngModel)]="authService.formData.name"
+        required minlength="1">
+    </div>
+    <div class="bm-3">
+        <label>Surname</label>
+        <input class="form-control form-control-lg"
+        placeholder="Surname"
+        #surname="ngModel" name="surname"
+        [(ngModel)]="authService.formData.surname"
+        required minlength="1">
+    </div>
+    <div class="bm-3">
+        <label>Password</label>
+        <input class="form-control form-control-lg"
+        placeholder="Password"
+        #password="ngModel" name="password"
+        [(ngModel)]="authService.formData.password"
+        required minlength="1">
+    </div>
+    <div class="d-grid">
+        <button class="btn btn-lg btn-success" type="submit">
+            Login
+        </button>
+    </div>
+</form>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LoginWebApp.Data;
 using LoginWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LoginWebApp.Controllers
 {
@@ -70,7 +71,8 @@ namespace LoginWebApp.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(await _context.Users.ToListAsync());
+            // return NoContent();
         }
 
         // POST: api/Users
@@ -81,7 +83,8 @@ namespace LoginWebApp.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return Ok(await _context.Users.ToListAsync());
+            // return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
         // DELETE: api/Users/5
@@ -97,12 +100,33 @@ namespace LoginWebApp.Controllers
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(await _context.Users.ToListAsync());
+            // return NoContent();
         }
 
         private bool UserExists(int id)
         {
             return _context.Users.Any(e => e.Id == id);
         }
+
+        [AllowAnonymous]
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] AuthenticateModel model)
+        {
+            // Sprawdzenie, czy użytkownik o podanym loginie i haśle istnieje w bazie danych
+            var userExists = await _context.Users.AnyAsync(u => u.Name == model.Name && u.Surname == model.Surname && u.Password == model.Password);
+
+            if (userExists)
+            {
+                // Użytkownik istnieje, logowanie powiodło się
+                return Ok(new { Success = true });
+            }
+            else
+            {
+                // Użytkownik nie istnieje, logowanie nie powiodło się
+                return Ok(new { Success = false });
+            }
+        }
+
     }
 }

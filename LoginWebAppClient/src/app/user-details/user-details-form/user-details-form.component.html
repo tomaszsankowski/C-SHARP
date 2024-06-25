@@ -1,1 +1,49 @@
-<p>user-details-form works!</p>
+<form #form="ngForm" (submit)="onSubmit(form)"
+[class.submitted]="service.formSubmitted" novalidate>
+    <input type="hidden" name="id" [value]="service.formData.id">
+    <div class="bm-3">
+        <label>Name</label>
+        <input class="form-control form-control-lg"
+        placeholder="User name"
+        #name="ngModel" name="name"
+        [(ngModel)]="service.formData.name"
+        required>
+    </div>
+    <div class="bm-3">
+        <label>Surname</label>
+        <input class="form-control form-control-lg"
+        placeholder="User surname"
+        #surname="ngModel" name="surname"
+        [(ngModel)]="service.formData.surname"
+        required>
+    </div>
+    <div class="bm-3">
+        <label>Email</label>
+        <input class="form-control form-control-lg"
+        placeholder="User email adress"
+        #email="ngModel" name="email"
+        [(ngModel)]="service.formData.email"
+        required>
+    </div>
+    <div class="bm-3">
+        <label>Password</label>
+        <input class="form-control form-control-lg"
+        placeholder="User password"
+        #password="ngModel" name="password"
+        [(ngModel)]="service.formData.password"
+        required>
+    </div>
+    <div class="bm-3">
+        <label>Phone</label>
+        <input class="form-control form-control-lg"
+        placeholder="9 digit phone number"
+        #phone="ngModel" name="phone"
+        [(ngModel)]="service.formData.phone"
+        required minlength="9" maxlength="9">
+    </div>
+    <div class="d-grid">
+        <button class="btn btn-lg btn-success" type="submit">
+            Add user
+        </button>
+    </div>
+</form>

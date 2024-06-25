@@ -24,6 +24,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Allow our front-end app to use our back-end http requests
+
+app.UseCors(options =>
+options.WithOrigins("http://localhost:4200")
+.AllowAnyMethod()
+.AllowAnyHeader());
+
 app.UseAuthorization();
 
 app.MapControllers();

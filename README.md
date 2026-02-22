@@ -1,26 +1,28 @@
 # C# Projects Archive
 
-This repository serves as an archive for my small and/or old C# projects, including university laboratories and mini-projects. The projects have been organized into categories based on their application type.
+This repository serves as an archive for my small and/or old C# projects, including university laboratories and mini-projects. The projects cover various application types, from console utilities to WPF desktop apps and full-stack web solutions.
 
-## Repository Structure
+## Projects Overview
 
-### Console Apps
-
-- **[DirectoryScanner](Console_Apps/DirectoryScanner)**: A console application that scans a directory, displays its contents, finds the oldest file, and serializes/deserializes a collection using `BinaryFormatter`.
-- **[LinqToXmlCarQueries](Console_Apps/LinqToXmlCarQueries)**: A console application that uses LINQ to XML and XPath to query and serialize a collection of Cars and Engines.
-- **[TcpCarTuningClientServer](Console_Apps/TcpCarTuningClientServer)**: A console application featuring a TCP Client and Server that communicate by sending a `Car` object serialized as JSON.
-
-### WPF Apps
-
-- **[WpfAsyncNewtonCalculator](WPF_Apps/WpfAsyncNewtonCalculator)**: A WPF application that calculates Newton's binomial coefficient asynchronously using Tasks and multithreading.
-- **[WpfCarCollectionManager](WPF_Apps/WpfCarCollectionManager)**: A WPF application for managing a collection of Cars and Engines, featuring XML serialization, sorting, and searching functionalities.
-- **[WpfDirectoryTreeView](WPF_Apps/WpfDirectoryTreeView)**: A WPF application that opens a directory, displays its structure in a TreeView, and allows creating or deleting files and folders.
-
-### 🌐 Full-Stack App
-
-- **[LoginWebApp](FullStack_LoginApp/LoginWebApp)**: An ASP.NET Core Web API providing authentication and user management.
-- **[LoginWebAppClient](FullStack_LoginApp/LoginWebAppClient)**: An Angular client application that interacts with the `LoginWebApp` API.
+| Project | Description |
+| :--- | :--- |
+| [**DirectoryScanner**](./Console_Apps/DirectoryScanner) | Scans directory structures, finds oldest files, and demonstrates `BinaryFormatter` serialization. |
+| [**LinqToXmlCarQueries**](./Console_Apps/LinqToXmlCarQueries) | Advanced XML querying using LINQ to XML and XPath for object collections. |
+| [**TcpCarTuningClientServer**](./Console_Apps/TcpCarTuningClientServer) | Network communication featuring a TCP Client/Server with JSON object exchange. |
+| [**WpfAsyncNewtonCalculator**](./WPF_Apps/WpfAsyncNewtonCalculator) | Asynchronous WPF application for Newton's binomial calculations using Tasks. |
+| [**WpfCarCollectionManager**](./WPF_Apps/WpfCarCollectionManager) | Desktop manager for car data featuring sorting, searching, and XML serialization. |
+| [**WpfDirectoryTreeView**](./WPF_Apps/WpfDirectoryTreeView) | Visual directory browser with tree structure and file system manipulation capabilities. |
+| [**LoginWebApp**](./FullStack_LoginApp/LoginWebApp) | ASP.NET Core Web API providing user authentication and management. |
+| [**LoginWebAppClient**](./FullStack_LoginApp/LoginWebAppClient) | Angular-based frontend client for the LoginWebApp API. |
 
 ## Setup and Execution
 
-Each project contains its own `README.md` with specific instructions on how to run it. Generally, you can open the `.sln` files in Visual Studio or use the `dotnet run` command in the respective project directories.
+- **IDE**: Visual Studio 2022 or JetBrains Rider.
+- **Framework**: .NET 6.0 / .NET Framework 4.7.2.
+- **Tools**: Node.js and Angular CLI (for the web client).
+
+Generally, you can open the `.sln` files in Visual Studio or use the `dotnet run` command in the respective project directories.
+
+---
+
+_Note: Each directory contains its own dedicated README.md file with a more detailed description of the specific project, implemented algorithms, and mathematical background._

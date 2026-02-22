@@ -1,0 +1,41 @@
+<Window x:Class="WpfDirectoryTreeView.CreateItemDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDirectoryTreeView"
+        mc:Ignorable="d"
+        Title="Create file/directory" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label VerticalAlignment="Center" Margin="5">Nazwa:</Label>
+            <TextBox x:Name="nameTextBox" VerticalAlignment="Center" Margin="5" Width="200"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <RadioButton x:Name="fileRadioButton" Padding="0,0,30,0" Content="Plik"/>
+            <RadioButton x:Name="folderRadioButton" Padding="0,0,30,0" Content="Folder"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <CheckBox x:Name="readOnlyCheckBox" Padding="5,0,5,0" Content="Read-only" HorizontalAlignment="Center"/>
+            <CheckBox x:Name="archiveCheckBox" Padding="5,0,5,0" Content="Archive" HorizontalAlignment="Center"/>
+            <CheckBox x:Name="systemCheckBox" Padding="5,0,5,0" Content="System" HorizontalAlignment="Center"/>
+            <CheckBox x:Name="hiddenCheckBox" Padding="5,0,5,0" Content="Hidden" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button Content="Ok" Padding="5" Click="OkButton_Click" Width="150"/>
+            <Button Content="Anuluj"  Padding="5" Click="CancelButton_Click" Width="150"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,54 @@
+## .NET / C#
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+
+## C++/CLI
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.idb
+*.ipch
+*.tlog
+*.lastbuildstate
+*.log
+*.intermediate/
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+## NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+
+## IDE
+.vs/
+*.rsuser
+*.csproj.user
+*.vcxproj.user
+.idea/
+
+## OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

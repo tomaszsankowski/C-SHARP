@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="String50.fs" />
+    <Compile Include="String50use.fs" />
+    <None Include="ScriptString50.fsx" />
+    <Compile Include="WrappedString.fs" />
+    <Compile Include="WrappedStringUse.fs" />
+    <None Include="ScriptWrappedString.fsx" />
+    <Compile Include="EmailAddress.fs" />
+    <None Include="ScriptEmailAddress.fsx" />
+    <Compile Include="ContactInfo.fs" />
+    <None Include="ScriptContactInfo.fsx" />
+    <Compile Include="Script.fsx" />
+    <Compile Include="Library.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.Collections.ParallelSeq" Version="1.2.0" />
+    <PackageReference Include="XPlot.Plotly" Version="4.1.0" />
+  </ItemGroup>
+
+</Project>

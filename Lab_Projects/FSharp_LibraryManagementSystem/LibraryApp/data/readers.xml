@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Readers>
+	<Reader Id="1" DepositUSD="50.00" JoinDate="2020-01-15" Status="Standard">
+		<ContactInfo>
+			<FirstName>Jan</FirstName>
+			<LastName>Kowalski</LastName>
+			<DOB>1990-05-20</DOB>
+			<CardNumber>LIB001</CardNumber>
+			<Email>jan@test.pl</Email>
+			<Phone>123-456-789</Phone>
+			<Address>Ul. Polna 1, Warszawa</Address>
+		</ContactInfo>
+	</Reader>
+
+	<Reader Id="2" DepositUSD="20.00" JoinDate="2023-11-01" Status="Standard">
+		<ContactInfo>
+			<FirstName>Anna</FirstName>
+			<LastName>Nowak</LastName>
+			<DOB>1995-03-12</DOB>
+			<CardNumber>LIB002</CardNumber>
+			<Phone>987-654-321</Phone>
+		</ContactInfo>
+	</Reader>
+
+	<Reader Id="3" DepositUSD="100.00" JoinDate="2018-05-20" Status="Standard">
+		<ContactInfo>
+			<FirstName>Piotr</FirstName>
+			<LastName>Wisniewski</LastName>
+			<DOB>1980-07-22</DOB>
+			<CardNumber>LIB003</CardNumber>
+			<Email>piotr@test.com</Email>
+			<Address>Ul. Lesna 5, Krakow</Address>
+		</ContactInfo>
+	</Reader>
+
+	<Reader Id="4" DepositUSD="10.00" JoinDate="2024-01-01" Status="Standard">
+	</Reader>
+</Readers>

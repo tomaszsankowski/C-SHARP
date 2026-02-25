@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Loans>
+	<ReaderLoans ReaderId="1">
+		<Loan ISBN="978-3-16-148410-0" Returned="true" />
+		<Loan ISBN="978-0-13-235088-4" Returned="false" />
+		<Loan ISBN="978-0-321-12521-7" Returned="true" />
+	</ReaderLoans>
+	<ReaderLoans ReaderId="3">
+		<Loan ISBN="978-3-16-148410-0" Returned="true" />
+		<Loan ISBN="978-3-16-148410-0" Returned="true" />
+		<Loan ISBN="978-3-16-148410-0" Returned="true" />
+		<Loan ISBN="978-3-16-148410-0" Returned="true" />
+		<Loan ISBN="978-3-16-148410-0" Returned="true" />
+		<Loan ISBN="978-3-16-148410-0" Returned="true" />
+	</ReaderLoans>
+</Loans>
